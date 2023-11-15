@@ -6,9 +6,8 @@ import time
 mySock = socket(AF_INET, SOCK_DGRAM)
 mySock.bind(('', 25565))
 
-def move():
+def move(px):
     try:
-        px = Picarx()
         px.forward(30)
         time.sleep(0.5)
         for angle in range(0,35):
@@ -46,9 +45,10 @@ def move():
         time.sleep(.2)
 
 if __name__ == "__main__":
+    px = Picarx()
     while True:
         message, clientAddress = mySock.recvfrom(2048)
         message = message.decode()
         print(message)
         mySock.sendto("got it".encode(), clientAddress)
-        move()
+        move(px)

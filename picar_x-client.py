@@ -32,7 +32,7 @@ def on_b_key(event):
 
 # Function to send commands to the server
 def send_command(msg):
-    yourSock.sendto(msg.encode(), ('10.50.16.16', 25565))
+    yourSock.sendto(msg.encode(), ('ip', 25565))
     message, serverAddress = yourSock.recvfrom(2048)
     print(message)
 

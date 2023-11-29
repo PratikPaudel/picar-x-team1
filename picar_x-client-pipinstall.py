@@ -32,7 +32,7 @@ def on_s_key(event):
 
 # Function to send commands to the server
 def send_command(msg):
-    yourSock.sendto(msg.encode(), ('10.53.20.60', 25565))
+    yourSock.sendto(msg.encode(), ('ip', 25565))
 
 # Function to change speed
 def speed_select():

@@ -1,10 +1,6 @@
 #Import statements for sockets and keyboard input
 from socket import *
 import keyboard
-import webbrowser
-
-url = "http://10.52.16.212:9000/mjpg"
-webbrowser.open(url) 
 
 #Prints instructions for the user
 print()
@@ -52,16 +48,8 @@ Troubleshooting:
 ---------------------------------------------------------------------------------------------------------------
 ''')
 
-
-
 #Connects to the socket
 yourSock = socket(AF_INET, SOCK_DGRAM)
-
-#Will get us an IP address from the user
-def get_ip_address():
-    while True:
-        ip = input("Enter the IP address of the robot server: ")
-        return ip
 
 # Define functions to be called on key events
 #Function for when left arrow is pressed down
@@ -132,7 +120,7 @@ def on_s_key(event):
 # Function to send commands to the server
 def send_command(msg):
     #Encodes and sends the command to the picar
-    yourSock.sendto(msg.encode(), (ip, 25565))
+    yourSock.sendto(msg.encode(), ('10.52.16.212', 25565))
 
 # Function to change speed
 def speed_select():
@@ -154,7 +142,7 @@ def speed_select():
     #Converts the input to a string in preparation for sending
     speed = str(speed)
     #Encodes and sends the new desired speed to the server
-    yourSock.sendto(speed.encode(), (ip, 25565))
+    yourSock.sendto(speed.encode(), ('10.52.16.212', 25565))
 
 # Bind the functions to the corresponding keys with the corresponding event type
 #Left arrow pressed/released binding and function call

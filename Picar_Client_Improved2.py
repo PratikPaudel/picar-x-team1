@@ -3,10 +3,6 @@ from socket import *
 import keyboard
 import webbrowser
 
-#Automatically opens the camera feed
-url = "http://10.52.16.212:9000/mjpg"
-webbrowser.open(url) 
-
 #Prints instructions for the user
 print()
 print('----------------------------------------------------------------------------------------------------')

@@ -1,6 +1,8 @@
 #Import statements for sockets and keyboard input
 from socket import *
 import keyboard
+import webbrowser
+
 
 #Prints instructions for the user
 print()
@@ -47,11 +49,22 @@ Troubleshooting:
           
 ---------------------------------------------------------------------------------------------------------------
 ''')
+#function to get ask and receive input from the user about the IP address
+def get_ip_address():
+    return input("Enter the IP address of the robot server: ")
+
+#this will get the IP address from the user
+ip = get_ip_address()
+
+#Concatenate the IP address with the rest of the URL
+url = f"http://{ip}:9000/mjpg"
+webbrowser.open(url)
+
 
 #Connects to the socket
 yourSock = socket(AF_INET, SOCK_DGRAM)
 
-# Define functions to be called on key events
+#Define functions to be called on key events
 #Function for when left arrow is pressed down
 def on_left_key(event):
     #Checks is the event type is a KEY_DOWN

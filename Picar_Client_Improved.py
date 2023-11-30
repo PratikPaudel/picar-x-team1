@@ -3,6 +3,9 @@ from socket import *
 import keyboard
 import webbrowser
 
+#this will get the IP address from the user
+ip = input("Enter the IP address of the robot server: ")
+
 #Prints instructions for the user
 print()
 print('----------------------------------------------------------------------------------------------------')
@@ -49,12 +52,6 @@ Troubleshooting:
 ---------------------------------------------------------------------------------------------------------------
 ''')
 
-#function to get ask and receive input from the user about the IP address
-def get_ip_address():
-    return input("Enter the IP address of the robot server: ")
-
-#this will get the IP address from the user
-ip = get_ip_address()
 
 #Concatenate the IP address with the rest of the URL
 url = f"http://{ip}:9000/mjpg"
@@ -64,9 +61,6 @@ webbrowser.open(url)
 yourSock = socket(AF_INET, SOCK_DGRAM)
 
 #Will get us an IP address from the user
-def get_ip_address():
-    ip = input("Enter the IP address of the robot server: ")
-    return ip
 
 # Define functions to be called on key events
 #Function for when left arrow is pressed down
@@ -201,7 +195,7 @@ def on_h_key(event):
 # Function to send commands to the server
 def send_command(msg):
     #Encodes and sends the command to the picar
-    yourSock.sendto(msg.encode(), (get_ip_address(), 25565))
+    yourSock.sendto(msg.encode(), (ip, 25565))
 
 # Function to change speed
 def speed_select():
@@ -223,7 +217,7 @@ def speed_select():
     #Converts the input to a string in preparation for sending
     speed = str(speed)
     #Encodes and sends the new desired speed to the server
-    yourSock.sendto(speed.encode(), (get_ip_address(), 25565))
+    yourSock.sendto(speed.encode(), (ip, 25565))
 
 # Bind the functions to the corresponding keys with the corresponding event type
 #Left arrow pressed/released binding and function call

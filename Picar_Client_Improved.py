@@ -1,6 +1,7 @@
 #Import statements for sockets and keyboard input
 from socket import *
 import keyboard
+import webbrowser
 
 #Prints instructions for the user
 print()
@@ -48,8 +49,24 @@ Troubleshooting:
 ---------------------------------------------------------------------------------------------------------------
 ''')
 
+#function to get ask and receive input from the user about the IP address
+def get_ip_address():
+    return input("Enter the IP address of the robot server: ")
+
+#this will get the IP address from the user
+ip = get_ip_address()
+
+#Concatenate the IP address with the rest of the URL
+url = f"http://{ip}:9000/mjpg"
+webbrowser.open(url)
+
 #Connects to the socket
 yourSock = socket(AF_INET, SOCK_DGRAM)
+
+#Will get us an IP address from the user
+def get_ip_address():
+    ip = input("Enter the IP address of the robot server: ")
+    return ip
 
 # Define functions to be called on key events
 #Function for when left arrow is pressed down
@@ -108,8 +125,65 @@ def on_not_down_key(event):
         #Calls the send command function to send the corresponding command
         send_command('notbackward')
 
-#Function for when 'S' is pressed down
+#Camera functions!!!
+#Function for when a is pressed down
+def on_a_key(event):
+    #Checks is the event type is a KEY_DOWN
+    if event.event_type == keyboard.KEY_DOWN:
+        #Calls the send command function to send the corresponding command
+        send_command('a')
+
+#Function for when a is released
+def on_not_a_key(event):
+    #Checks is the event type is a KEY_UP
+    if event.event_type == keyboard.KEY_UP:
+        #Calls the send command function to send the corresponding command
+        send_command('nota')
+
+#Function for when d is pressed down
+def on_d_key(event):
+    #Checks is the event type is a KEY_DOWN
+    if event.event_type == keyboard.KEY_DOWN:
+        #Calls the send command function to send the corresponding command
+        send_command('d')
+
+#Function for when d is released
+def on_not_d_key(event):
+    #Checks is the event type is a KEY_UP
+    if event.event_type == keyboard.KEY_UP:
+        #Calls the send command function to send the corresponding command
+        send_command('notd')
+
+#Function for when w is pressed down
+def on_w_key(event):
+    #Checks is the event type is a KEY_DOWN
+    if event.event_type == keyboard.KEY_DOWN:
+        #Calls the send command function to send the corresponding command
+        send_command('w')
+
+#Function for when w is released
+def on_not_w_key(event):
+    #Checks is the event type is a KEY_UP
+    if event.event_type == keyboard.KEY_UP:
+        #Calls the send command function to send the corresponding command
+        send_command('notw')
+
+#Function for when s is pressed down
 def on_s_key(event):
+    #Checks is the event type is a KEY_DOWN
+    if event.event_type == keyboard.KEY_DOWN:
+        #Calls the send command function to send the corresponding command
+        send_command('s')
+
+#Function for when s is released
+def on_not_s_key(event):
+    #Checks is the event type is a KEY_UP
+    if event.event_type == keyboard.KEY_UP:
+        #Calls the send command function to send the corresponding command
+        send_command('nots')
+
+#Function for when 'J' is pressed down
+def on_j_key(event):
     #Checks is the event type is a KEY_DOWN
     if event.event_type == keyboard.KEY_DOWN:
         #Calls the send command function to send the corresponding command
@@ -117,10 +191,17 @@ def on_s_key(event):
         #Calls the speed function to prompt the user for the desired speed
         speed_select()
 
+#Function for when 'H' is pressed down
+def on_h_key(event):
+    #Checks is the event type is a KEY_DOWN
+    if event.event_type == keyboard.KEY_DOWN:
+        #Calls the send command function to send the corresponding command
+        send_command('h')
+
 # Function to send commands to the server
 def send_command(msg):
     #Encodes and sends the command to the picar
-    yourSock.sendto(msg.encode(), ('10.52.16.212', 25565))
+    yourSock.sendto(msg.encode(), (get_ip_address(), 25565))
 
 # Function to change speed
 def speed_select():
@@ -142,7 +223,7 @@ def speed_select():
     #Converts the input to a string in preparation for sending
     speed = str(speed)
     #Encodes and sends the new desired speed to the server
-    yourSock.sendto(speed.encode(), ('10.52.16.212', 25565))
+    yourSock.sendto(speed.encode(), (get_ip_address(), 25565))
 
 # Bind the functions to the corresponding keys with the corresponding event type
 #Left arrow pressed/released binding and function call
@@ -161,8 +242,28 @@ keyboard.on_release_key('up', on_not_up_key)
 keyboard.on_press_key('down', on_down_key)
 keyboard.on_release_key('down', on_not_down_key)
 
-#'S' key pressed/released binding and function call
-keyboard.on_press_key('S', on_s_key)  # 'S' key for speed select
+#Camera key bindings
+#A pressed/released binding and function call
+keyboard.on_press_key('A', on_a_key)
+keyboard.on_release_key('A', on_not_a_key)
+
+#D pressed/released binding and function call
+keyboard.on_press_key('D', on_d_key)
+keyboard.on_release_key('D', on_not_d_key)
+
+#W pressed/released binding and function call
+keyboard.on_press_key('W', on_w_key)
+keyboard.on_release_key('W', on_not_w_key)
+
+#S arrow pressed/released binding and function call
+keyboard.on_press_key('S', on_s_key)
+keyboard.on_release_key('S', on_not_s_key)
+
+#'J' key pressed/released binding and function call
+keyboard.on_press_key('J', on_j_key)  # 'J' key for speed select
+
+#'H' key pressed/released binding and function call
+keyboard.on_press_key('H', on_h_key)  # 'H' key for speed select
 
 # Keep the program running
 keyboard.wait()

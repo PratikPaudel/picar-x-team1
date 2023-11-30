@@ -4,7 +4,7 @@ import keyboard
 import webbrowser
 
 url = "http://10.52.16.212:9000/mjpg"
-webbrowser.open(url)
+webbrowser.open(url) 
 #Prints instructions for the user
 print()
 print('----------------------------------------------------------------------------------------------------')

@@ -2,19 +2,19 @@
 
 ## Overview
 
-This program enables you to control a robot using a keyboard, sending commands over a UDP connection.
+This program enables you to control a robot car (picar) using a keyboard, sending commands over a UDP connection.
 
 ## Setup
 
 - Ensure that Python and the 'keyboard' library are installed. You can install 'keyboard' using 'pip install keyboard'.
-- The script communicates with the robot server at the 'ip':25565.
+- The script communicates with the robot server at the 'port no.':25565.
 
 ## Usage
 
 ### Run the Script
 
-- Start the script in Python. You might need to run it in administrative mode.
-- Once the script is running, it will listen for the client to press keys and send the commands to the robot.
+- Start the script in Python. 
+- Once the script is running, it will ask client for IP and se for the client to press keys and send the commands to the robot.
 
 ### Control Keys
 

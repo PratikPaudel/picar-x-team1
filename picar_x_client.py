@@ -9,52 +9,52 @@ ip = input("Enter the IP address of the robot server: ")
 # Prints instructions for the user
 print()
 print('----------------------------------------------------------------------------------------------------')
-print('''- Robot Control Instructions -
-      
+print('''- Robot Control Instructions -Overview:
+
 Overview:
-      
+
         -This Program allows you to control a robot using a keyboard it sends the robot over a UDP connection
 Setup:
-      
+     
         -Make Sure Python and 'keyboard' are installed you get keyboard from pip install extension.
-      
+     
         -Script communicates with the robot server at the 'ip':25565.
 Usage:
-      
+     
     -Run the Script:
-      
+     
         -Start the script in Python. You might need to run it in adminstrative mode.
-      
+     
         -Once the script is running it will listen for the client to press keys and it will send the commands to the robot
    
     -Control Keys:
+         
+        Left Arrow: Move the wheels to the left. Press to start and release to stop.
       
-        -Left Arrow: Move the robot left. Press to start and release to stop.
+        Right Arrow: Move the wheels to the right. Press to start and release to stop.
       
-        -Right Arrow: Move robot right. Press to start and release to stop.
+        Up Arrow: Moves the car forward. Press to start and release to stop.
       
-        -Up Arrow: Move robot forward. Press to start and release to stop.
+        Down Arrow: Move the car backward. Press to start and release to stop.
       
-        -Down Arrow: Move robot backward. Press to start and release stop.
+        J Key: Set robot's speed (0-100). Press 'J', then enter the speed, then press Enter. If you input an invalid speed, it will reset to 30 speed.
       
-        -J Key: Set robots speed (0-100). Press 'J', then enter the speed, then press Enter, if you put in an invalid speed and it will reset to 30 speed.
+        Exit: Stop the script with Ctrl + C or by closing Python; this will halt the code.
       
-        -Exit: Stop the script with Ctrl + C or by closing Python this will stop the code.
+        'A', 'D', 'W', and 'S' keys: Control the camera movement and direction.
       
-        -'A', 'D', 'W', and 'S' keys: Control the camera movement and direction.
+        H key: Honk function.
       
-        -H key: for honk function
+        T key: Take photo from the picar camera as you move the angle of the camera.
       
-        -T key: take photo function
-
 Troubleshooting:
-      
+     
         -Make sure that the robots server is running first.
-      
+     
         -Check if you have the correct IP address.
-      
+     
         -Make sure that 'keyboard' is installed and working right.  
-          
+         
 ---------------------------------------------------------------------------------------------------------------
 ''')
 

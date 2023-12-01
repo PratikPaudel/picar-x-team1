@@ -9,10 +9,10 @@ ip = input("Enter the IP address of the robot server: ")
 # Prints instructions for the user
 print()
 print('----------------------------------------------------------------------------------------------------')
-print('''- Robot Control Instructions -Overview:
-
+print('''- Robot Control Instructions -
+     
 Overview:
-
+     
         -This Program allows you to control a robot using a keyboard it sends the robot over a UDP connection
 Setup:
      
@@ -47,6 +47,7 @@ Usage:
       
         T key: Take photo from the picar camera as you move the angle of the camera.
       
+      
 Troubleshooting:
      
         -Make sure that the robots server is running first.
@@ -69,169 +70,211 @@ yourSock = socket(AF_INET, SOCK_DGRAM)
 # Will get us an IP address from the user
 
 # Define functions to be called on key events
-# Function for when left arrow is pressed down
 def on_left_key(event):
-    # Checks is the event type is a KEY_DOWN
+    """
+    Handles the press of the left arrow key and triggers a 'left' command.
+
+    Parameters:
+    - event: The keyboard event associated with the key press.
+    """
     if event.event_type == keyboard.KEY_DOWN:
-        # Calls the send command function to send the corresponding command
         send_command('left')
 
-# Function for when left arrow is released
 def on_not_left_key(event):
-    # Checks is the event type is a KEY_UP
+    """
+    Handles the release of the left arrow key and triggers a 'notleft' command.
+
+    Parameters:
+    - event: The keyboard event associated with the key release.
+    """
     if event.event_type == keyboard.KEY_UP:
-        #Calls the send command function to send the corresponding command
         send_command('notleft')
 
-# Function for when right arrow is pressed down
 def on_right_key(event):
-    # Checks is the event type is a KEY_DOWN
+    """
+    Handles the press of the right arrow key and triggers a 'right' command.
+
+    Parameters:
+    - event: The keyboard event associated with the key press.
+    """
     if event.event_type == keyboard.KEY_DOWN:
-        # Calls the send command function to send the corresponding command
         send_command('right')
 
-# Function for when right arrow is released
 def on_not_right_key(event):
-    # Checks is the event type is a KEY_UP
+    """
+    Handles the release of the right arrow key and triggers a 'notright' command.
+
+    Parameters:
+    - event: The keyboard event associated with the key release.
+    """
     if event.event_type == keyboard.KEY_UP:
-        # Calls the send command function to send the corresponding command
         send_command('notright')
 
-# Function for when up arrow is pressed down
 def on_up_key(event):
-    # Checks is the event type is a KEY_DOWN
+    """
+    Handles the press of the up arrow key and triggers a 'forward' command.
+
+    Parameters:
+    - event: The keyboard event associated with the key press.
+    """
     if event.event_type == keyboard.KEY_DOWN:
-        # Calls the send command function to send the corresponding command
         send_command('forward')
 
-# Function for when up arrow is released
 def on_not_up_key(event):
-    # Checks is the event type is a KEY_UP
+    """
+    Handles the release of the up arrow key and triggers a 'notforward' command.
+
+    Parameters:
+    - event: The keyboard event associated with the key release.
+    """
     if event.event_type == keyboard.KEY_UP:
-        # Calls the send command function to send the corresponding command
         send_command('notforward')
 
-# Function for when down arrow is pressed down
 def on_down_key(event):
-    # Checks is the event type is a KEY_DOWN
+    """
+    Handles the press of the down arrow key and triggers a 'backward' command.
+
+    Parameters:
+    - event: The keyboard event associated with the key press.
+    """
     if event.event_type == keyboard.KEY_DOWN:
-        # Calls the send command function to send the corresponding command
         send_command('backward')
 
-# Function for when down arrow is released
 def on_not_down_key(event):
-    # Checks is the event type is a KEY_UP
+    """
+    Handles the release of the down arrow key and triggers a 'notbackward' command.
+
+    Parameters:
+    - event: The keyboard event associated with the key release.
+    """
     if event.event_type == keyboard.KEY_UP:
-        # Calls the send command function to send the corresponding command
         send_command('notbackward')
 
-# Camera functions!!!
-# Function for when a is pressed down
 def on_a_key(event):
-    # Checks is the event type is a KEY_DOWN
+    """
+    Handles the press of the 'A' key and triggers an 'a' command for camera movement.
+
+    Parameters:
+    - event: The keyboard event associated with the key press.
+    """
     if event.event_type == keyboard.KEY_DOWN:
-        # Calls the send command function to send the corresponding command
         send_command('a')
 
-# Function for when a is released
 def on_not_a_key(event):
-    # Checks is the event type is a KEY_UP
+    """
+    Handles the release of the 'A' key and triggers a 'nota' command.
+
+    Parameters:
+    - event: The keyboard event associated with the key release.
+    """
     if event.event_type == keyboard.KEY_UP:
-        # Calls the send command function to send the corresponding command
         send_command('nota')
 
-# Function for when d is pressed down
 def on_d_key(event):
-    # Checks is the event type is a KEY_DOWN
+    """
+    Handles the press of the 'D' key and triggers an 'd' command for camera movement.
+
+    Parameters:
+    - event: The keyboard event associated with the key press.
+    """
     if event.event_type == keyboard.KEY_DOWN:
-        # Calls the send command function to send the corresponding command
         send_command('d')
 
-# Function for when d is released
 def on_not_d_key(event):
-    # Checks is the event type is a KEY_UP
+    """
+    Sends 'notd' command when the 'D' key is released.
+    """
     if event.event_type == keyboard.KEY_UP:
-        # Calls the send command function to send the corresponding command
         send_command('notd')
 
-# Function for when w is pressed down
 def on_w_key(event):
-    # Checks is the event type is a KEY_DOWN
+    """
+    Handles the press of the 'W' key and triggers an 'w' command for camera movement.
+
+    Parameters:
+    - event: The keyboard event associated with the key press.
+    """
     if event.event_type == keyboard.KEY_DOWN:
-        # Calls the send command function to send the corresponding command
         send_command('w')
 
-# Function for when w is released
 def on_not_w_key(event):
-    # Checks is the event type is a KEY_UP
+    """
+    Sends 'notw' command when the 'W' key is released.
+    """
     if event.event_type == keyboard.KEY_UP:
-        # Calls the send command function to send the corresponding command
         send_command('notw')
 
-# Function for when s is pressed down
 def on_s_key(event):
-    # Checks is the event type is a KEY_DOWN
+    """
+    Handles the press of the 'S' key and triggers an 's' command for camera movement.
+
+    Parameters:
+    - event: The keyboard event associated with the key press.
+    """
     if event.event_type == keyboard.KEY_DOWN:
-        #Calls the send command function to send the corresponding command
         send_command('s')
 
-# Function for when s is released
 def on_not_s_key(event):
-    # Checks is the event type is a KEY_UP
+    """
+    Sends 'nots' command when the 'S' key is released.
+    """
     if event.event_type == keyboard.KEY_UP:
-        #Calls the send command function to send the corresponding command
         send_command('nots')
 
-# Function for when 'J' is pressed down
 def on_j_key(event):
-    # Checks is the event type is a KEY_DOWN
+    """
+    Handles the press of the 'J' key and triggers an 'speed' command for camera movement.
+
+    Parameters:
+    - event: The keyboard event associated with the key press.
+    """
     if event.event_type == keyboard.KEY_DOWN:
-        # Calls the send command function to send the corresponding command
         send_command('speed')
-        # Calls the speed function to prompt the user for the desired speed
         speed_select()
 
-# Function for when 'H' is pressed down
 def on_h_key(event):
-    # Checks is the event type is a KEY_DOWN
+    """
+    Handles the press of the 'H' key and triggers an 'h' command for honking sound.
+
+    Parameters:
+    - event: The keyboard event associated with the key press.
+    """
     if event.event_type == keyboard.KEY_DOWN:
-        #Calls the send command function to send the corresponding command
         send_command('h')
 
-# Function for when 'T' is pressed down
 def on_t_key(event):
-    # Checks is the event type is a KEY_DOWN
+    """
+    Handles the press of the 'T' key and triggers an 't' command for taking pictures on the server side.
+
+    Parameters:
+    - event: The keyboard event associated with the key press.
+    """
     if event.event_type == keyboard.KEY_DOWN:
-        # Calls the send command function to send the corresponding command
         send_command('t')
 
-# Function to send commands to the server
 def send_command(msg):
-    # Encodes and sends the command to the picar
+    """
+    Sends a command to the server side program (running on raspberry pi (picar)).
+   
+    Parameters:
+    - msg (str): The command message to be sent.
+    """
     yourSock.sendto(msg.encode(), (ip, 25565))
 
-# Function to change speed
 def speed_select():
-    # Try block to catch invalid input types
+    """
+    Prompts the user to select a speed and sends it to the picar.
+    """
     try:
-        # Prompts the user for the new desired speed
-        speed = int(input("What speed would you like the robot to move (0-100): "))
-
-        # Checks to see if the number given is within the possible speed range
-        while((speed > 100) or (speed < 0)):
-            # Declares invalid input was received and reprompts the user for the new desired speed
-            speed = int(input("Invalid speed. What speed would you like the robot to move (0-100): "))
+        speed = int(input("Enter robot speed (0-100): "))
+        while speed < 0 or speed > 100:
+            speed = int(input("Invalid speed. Enter a value between 0-100: "))
     except ValueError:
-        # Prints that an invalid entry type was received and resets the speed to the default speed
-        print("Invalid entry type. Resetting robot speed to 30.")
-        # Resets the speed to the default speed
+        print("Invalid entry. Resetting speed to 30.")
         speed = "30"
-        
-    # Converts the input to a string in preparation for sending
-    speed = str(speed)
-    # Encodes and sends the new desired speed to the server
-    yourSock.sendto(speed.encode(), (ip, 25565))
-
+   
+    yourSock.sendto(str(speed).encode(), (ip, 25565))
+   
 # Bind the functions to the corresponding keys with the corresponding event type
 # Left arrow pressed/released binding and function call
 keyboard.on_press_key('left', on_left_key)
@@ -273,7 +316,8 @@ keyboard.on_press_key('J', on_j_key)  # 'J' key for speed select
 keyboard.on_press_key('H', on_h_key)  # 'H' key for speed select
 
 # 'T' key pressed/released binding and function call
-keyboard.on_press_key('T', on_t_key)  # 'T' key for speed select
+keyboard.on_press_key('T', on_t_key)  # 'T' key for taking picture
 
 # Keep the program running
 keyboard.wait()
+

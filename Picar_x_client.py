@@ -40,11 +40,11 @@ Usage:
         -J Key: Set robots speed (0-100). Press 'J', then enter the speed, then press Enter, if you put in an invalid speed and it will reset to 30 speed.
       
         -Exit: Stop the script with Ctrl + C or by closing Python this will stop the code.
-
+      
         -'A', 'D', 'W', and 'S' keys: Control the camera movement and direction.
-
+      
         -H key: for honk function
-
+      
         -T key: take photo function
 
 Troubleshooting:
@@ -198,6 +198,13 @@ def on_h_key(event):
         #Calls the send command function to send the corresponding command
         send_command('h')
 
+#Function for when 'T' is pressed down
+def on_t_key(event):
+    #Checks is the event type is a KEY_DOWN
+    if event.event_type == keyboard.KEY_DOWN:
+        #Calls the send command function to send the corresponding command
+        send_command('t')
+
 # Function to send commands to the server
 def send_command(msg):
     #Encodes and sends the command to the picar
@@ -264,6 +271,9 @@ keyboard.on_press_key('J', on_j_key)  # 'J' key for speed select
 
 #'H' key pressed/released binding and function call
 keyboard.on_press_key('H', on_h_key)  # 'H' key for speed select
+
+#'T' key pressed/released binding and function call
+keyboard.on_press_key('T', on_t_key)  # 'T' key for speed select
 
 # Keep the program running
 keyboard.wait()

@@ -37,9 +37,15 @@ Usage:
       
         -Down Arrow: Move robot backward. Press to start and release stop.
       
-        -S Key: Set robots speed (0-100). Press 'S', then enter the speed, then press Enter, if you put in a speed that is invalid and it will reset to 30 speed.
+        -J Key: Set robots speed (0-100). Press 'J', then enter the speed, then press Enter, if you put in an invalid speed and it will reset to 30 speed.
       
         -Exit: Stop the script with Ctrl + C or by closing Python this will stop the code.
+
+        -'A', 'D', 'W', and 'S' keys: Control the camera movement and direction.
+
+        -H key: for honk function
+
+        -T key: take photo function
 
 Troubleshooting:
       

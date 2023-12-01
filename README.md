@@ -6,7 +6,7 @@ This program enables you to control a robot using a keyboard, sending commands o
 
 ## Setup
 
-- Ensure that Python and the 'keyboard' library are installed. You can install 'keyboard' using `pip install keyboard`.
+- Ensure that Python and the 'keyboard' library are installed. You can install 'keyboard' using 'pip install keyboard'.
 - The script communicates with the robot server at the 'ip':25565.
 
 ## Usage

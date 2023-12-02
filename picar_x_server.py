@@ -8,7 +8,6 @@ import time
 user = os.getlogin() #getting the user info
 user_home = os.path.expanduser(f'~{user}') #to save the file on the server
 
-
 # Initialize pygame mixer (call this before using any mixer functions)
 pygame.mixer.init()
 
@@ -25,7 +24,6 @@ px = Picarx()
 speedd = 30
 # Sets initial steering angle so that it starts straight
 px.set_dir_servo_angle(-5.5)
-
 
 # Function to handle communication with the client
 def server_thread():

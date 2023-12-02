@@ -29,9 +29,29 @@ px.set_dir_servo_angle(-5.5)
 
 # Function to handle communication with the client
 def server_thread():
-    Vilib.camera_start(vflip=False,hflip=False)
-    Vilib.display(local=False,web=True)
-    path =f"{user_home}/picar-x/images"
+    """
+    Handles communication with the client to control the vehicle.
+
+    The function sets up camera, listens for client commands, and executes corresponding actions.
+
+    Commands:
+    - 'forward': Move the vehicle forward.
+    - 'notforward': Stop moving forward.
+    - 'left': Turn the vehicle left.
+    - 'notleft': Straighten the wheels after turning left.
+    - 'right': Turn the vehicle right.
+    - 'notright': Straighten the wheels after turning right.
+    - 'backward': Move the vehicle backward at the specified speed.
+    - 'notbackward': Stop moving backward.
+    - 'a', 'nota', 'd', 'notd', 'w', 'notw', 's', 'nots': Control camera servo movements.
+    - 'h': Activate the horn sound.
+    - 't': Take a photo and save it in the specified path on the server side.
+    - 'speed': Set the speed of the vehicle.
+    """
+    
+    Vilib.camera_start(vflip=False,hflip=False) #starting the camera
+    Vilib.display(local=False,web=True) #only sending video feed to the web port
+    path =f"{user_home}/picar-x/images" #location to save the image taken
     while True:
         global speedd
 

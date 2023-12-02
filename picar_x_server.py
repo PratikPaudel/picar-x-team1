@@ -44,7 +44,7 @@ def server_thread():
         # Executions of the commands based on the received messages
         if command == "forward":
             px.forward(speedd)
-        if command == "notforward":
+        elif command == "notforward":
             px.forward(0)
         elif command == "left":
             px.set_dir_servo_angle(-29.5) # Setting angle when turning left
@@ -62,7 +62,7 @@ def server_thread():
         # Handles the camera movement
         if command == "a":
             px.set_camera_servo1_angle(-35)
-        if command == "nota":
+        elif command == "nota":
             px.set_camera_servo1_angle(0)
         elif command == "d":
             px.set_camera_servo1_angle(35)

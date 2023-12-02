@@ -5,8 +5,8 @@ from vilib import Vilib
 import pygame  # to get the horn sound
 import os #to save the picture
 import time
-user = os.getlogin()
-user_home = os.path.expanduser(f'~{user}')
+user = os.getlogin() #getting the user info
+user_home = os.path.expanduser(f'~{user}') #to save the file on the server
 
 
 # Initialize pygame mixer (call this before using any mixer functions)
